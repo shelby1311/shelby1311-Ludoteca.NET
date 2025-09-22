@@ -1,60 +1,87 @@
-🎲 Projeto Ludoteca .NET
-Este é um projeto acadêmico desenvolvido para a disciplina de [Nome da Disciplina], com o objetivo de criar um sistema de gerenciamento de empréstimos de jogos de tabuleiro para um clube universitário. A aplicação é executada via console e foi construída utilizando C# e o ecossistema .NET 9.
+Ludoteca .NET
 
-📖 Sobre o Projeto
-O sistema "Ludoteca .NET" permite realizar as seguintes operações:
+Projeto acadêmico: sistema de gerenciamento de empréstimos de jogos de tabuleiro para um clube universitário.
+Aplicação em console desenvolvida em C# sobre o ecossistema .NET 9, com persistência dos dados em JSON.
 
-Cadastrar novos jogos e membros do clube.
+Visão geral
 
-Listar todos os jogos disponíveis e seus status (Disponível ou Emprestado).
+O sistema Ludoteca .NET foi concebido para gerenciar o cadastro de jogos e membros, controlar empréstimos e devoluções, e gerar relatórios de uso da ludoteca. É uma aplicação de linha de comando (console) voltada a fins acadêmicos, estruturada conforme princípios de separação de responsabilidades.
 
-Gerenciar o fluxo de empréstimo e devolução de jogos.
+Funcionalidades principais
 
-Gerar relatórios com estatísticas de uso da ludoteca.
+Cadastro de jogos e de membros do clube.
 
-Persistir todos os dados em um arquivo biblioteca.json, garantindo que as informações não sejam perdidas ao fechar o programa.
+Listagem de jogos com status (Disponível / Emprestado).
 
-O projeto foi estruturado seguindo os princípios de Separação de Responsabilidades, dividindo o código em camadas de Modelos (dados), Serviços (lógica de negócio) e Interface do Usuário (console).
+Fluxo de empréstimo e devolução de jogos.
 
-💻 Tecnologias Utilizadas
+Geração de relatórios e estatísticas de utilização.
+
+Persistência dos dados em arquivo biblioteca.json para garantir recuperação entre execuções.
+
+Arquitetura do projeto
+
+O código foi organizado em camadas claras para facilitar manutenção e teste:
+
+Modelos (Models) — entidades de domínio (jogo, membro, empréstimo, etc.).
+
+Serviços (Services) — lógica de negócio (regras de empréstimo, validações, geração de relatórios).
+
+Interface do Usuário (Console) — interação com o usuário via terminal.
+
+Tecnologias
+
 C# 13
 
 .NET 9
 
-System.Text.Json para serialização e persistência de dados.
+System.Text.Json para serialização e persistência dos dados
 
-👨‍💻 Autores
+Pré-requisitos
+
+SDK do .NET 9 instalado. (Ex.: baixar em https://dotnet.microsoft.com)
+
+Como executar (local)
+
+Clone o repositório:
+
+git clone URL_DO_SEU_REPOSITORIO_AQUI
+
+
+Acesse a pasta do projeto (onde está o .csproj):
+
+cd Ludoteca.NET/src/Ludoteca
+
+
+Restaure dependências (recomendado):
+
+dotnet restore
+
+
+Execute a aplicação:
+
+dotnet run
+
+
+Observação: os dados são salvos/atualizados no arquivo biblioteca.json presente no diretório do projeto. Se o arquivo não existir, ele será criado automaticamente pela aplicação.
+
+Estrutura de diretórios (exemplo)
+Ludoteca.NET/
+├─ src/
+│  ├─ Ludoteca/         # projeto principal (console)
+│  │  ├─ Models/
+│  │  ├─ Services/
+│  │  └─ Program.cs
+│  └─ ...
+└─ biblioteca.json
+
+Autores
 Nome	Matrícula
 Gustavo Ramos	06009333
 Nathan Salles	06009233
 Cristiano Cordeiro	06010709
 Andrey Campos	06009553
 
-Exportar para as Planilhas
-🚀 Como Executar o Projeto
-Para executar este projeto em sua máquina local, siga os passos abaixo.
+Observações finais
 
-Pré-requisitos
-É necessário ter o SDK do .NET 9 instalado. Você pode baixá-lo em dotnet.microsoft.com.
-
-Passo a Passo
-Clone o repositório para sua máquina:
-
-Bash
-
-git clone URL_DO_SEU_REPOSITORIO_AQUI
-Navegue até a pasta do projeto onde o arquivo .csproj está localizado:
-
-Bash
-
-cd Ludoteca.NET/src/Ludoteca
-Restaure as dependências do projeto (uma boa prática):
-
-Bash
-
-dotnet restore
-Execute a aplicação:
-
-Bash
-
-dotnet run
+Este repositório tem objetivo acadêmico e demonstrativo. Para uso em produção, recomenda-se adicionar testes automatizados, tratamento de concorrência no acesso ao arquivo de dados, e migrar a persistência para um banco de dados adequado conforme requisitos de escalabilidade e integridade.
